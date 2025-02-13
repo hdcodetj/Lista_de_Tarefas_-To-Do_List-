@@ -13,6 +13,14 @@ function adicionarTarefa() {
     const novaTarefa = document.createElement('li');
     novaTarefa.textContent = textoTarefa;
 
+    const btnRemover = document.createElement('button');
+    btnRemover.textContent = 'X';
+    btnRemover.addEventListener('click', () => {
+        novaTarefa.remove();
+    })
+
+    novaTarefa.appendChild(btnRemover);
+    
     listaTarefas.appendChild(novaTarefa);
 
     inputTarefa.value = '';
