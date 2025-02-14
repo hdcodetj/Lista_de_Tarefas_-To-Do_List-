@@ -24,5 +24,22 @@ function adicionarTarefa() {
     listaTarefas.appendChild(novaTarefa);
 
     inputTarefa.value = '';
+
+    novaTarefa.setAttribute('tabindex', '0');
+
+novaTarefa.addEventListener('keydown', (event) => {
+    if (event.key === 'Delete' || event.key === 'Backspace') {
+        novaTarefa.remove(); // Remove a tarefa
+    }
+});
+
 }
 btnAdicionar.addEventListener('click', adicionarTarefa);
+
+inputTarefa.addEventListener('keypress', (event) => {
+    if (event.key === 'Enter') {
+        adicionarTarefa();
+    }
+});
+
+
